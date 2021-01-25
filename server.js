@@ -1,12 +1,16 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const routes = require("./routes")
+const routes = require("./routes/index");
+const connectDB = require("./config/connectDB")
 
 const PORT = process.env.PORT || 3000;
 
 //sets up use of the express server=================
 const app = express();
+
+//link models
+const db = require("./models")
 
 app.use(logger("dev"));
 //sets up use of the routes folder=============
