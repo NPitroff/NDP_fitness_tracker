@@ -1,3 +1,4 @@
+
 const express = require("express");
 const logger = require("morgan");
 const path = require("path");
@@ -12,7 +13,8 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 //link models
-const db = require("./models");
+// const db = require("./models");
+const router = require('express').Router()
 
 app.use(logger("dev"));
 //sets up use of the routes folder=============
