@@ -45,6 +45,6 @@ userLogSchema.virtual("totalDuration").get(function(){
     }, 0);
 });
 
-const Workout = mongoose.model("Exercise", userLogSchema);
+const Exercise = mongoose.model("Exercise", userLogSchema);
 
 module.exports = Exercise
