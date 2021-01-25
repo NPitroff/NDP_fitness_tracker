@@ -43,3 +43,25 @@ router.get("/exercise", (req, res) => {
         res.json(err);
       });
   });
+  //route to push new data into the array of exercises================
+  router.put("/api/workouts/:id", (req, res) => {
+    Exercise.updateOne({ _id: req.params.id }, { $push: { exercises: req.body } })
+      .then(workout => {
+        res.json(workout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+  //route to find all exercises========================
+  router.get("/api/workouts/range", (req, res) => {
+    Exercise.find({})
+      .then(workout => {
+        res.json(workout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+  
+  module.exports = router;
