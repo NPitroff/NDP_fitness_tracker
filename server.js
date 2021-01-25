@@ -1,8 +1,10 @@
 const express = require("express");
 const logger = require("morgan");
+const path = require('path');
+const Exercise = require('./models/exerciseData');
 const mongoose = require("mongoose");
-const routes = require("./routes/index");
-const connectDB = require("./config/connectDB")
+// const routes = require("./routes/index");
+// const connectDB = require("./config/connectDB")
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,7 +16,7 @@ const db = require("./models")
 
 app.use(logger("dev"));
 //sets up use of the routes folder=============
-app.use(routes);
+// app.use(routes);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,6 +32,7 @@ mongoose.connect(
       useFindAndModify: false
     }
   );
+//routes==============================================
 
 
 

@@ -5,17 +5,17 @@ const Exercise = require("../models/exerciseData");
 //routes to load the different pages============
 
 router.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 
 });
 
 router.get("/exercise", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'exercise.html'));
+    res.sendFile(path.join(__dirname, '/public/exercise.html'));
   });
 
   
   router.get("/stats", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'stats.html'));
+    res.sendFile(path.join(__dirname, '/public/stats.html'));
   });
 //route to get the workout data==================
   router.get("/api/workouts", (req, res) => {
