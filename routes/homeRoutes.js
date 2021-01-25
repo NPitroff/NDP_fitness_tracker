@@ -5,23 +5,23 @@ const Exercise = require("../models/exerciseData");
 //routes to load the different pages============
 
 router.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 
 });
 
 router.get("/exercise", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/exercise.html"));
+    res.sendFile(path.join(__dirname, 'public', 'exercise.html'));
   });
 
   
   router.get("/stats", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/stats.html"));
+    res.sendFile(path.join(__dirname, 'public', 'stats.html'));
   });
 //route to get the workout data==================
   router.get("/api/workouts", (req, res) => {
     console.log(req.body);
   
-    Exercise.find({})
+    db.Exercise.find({})
       .then(workout => {
         res.json(workout);
       })
@@ -33,7 +33,7 @@ router.get("/exercise", (req, res) => {
   router.post("/api/workouts", (req, res) => {
     console.log(req.body);
   
-    Exercise.create({
+    db.Exercise.create({
       exercises: []
     })
       .then(workout => {
@@ -45,7 +45,7 @@ router.get("/exercise", (req, res) => {
   });
   //route to push new data into the array of exercises================
   router.put("/api/workouts/:id", (req, res) => {
-    Exercise.updateOne({ _id: req.params.id }, { $push: { exercises: req.body } })
+    db.Exercise.updateOne({ _id: req.params.id }, { $push: { exercises: req.body } })
       .then(workout => {
         res.json(workout);
       })
@@ -55,7 +55,7 @@ router.get("/exercise", (req, res) => {
   });
   //route to find all exercises========================
   router.get("/api/workouts/range", (req, res) => {
-    Exercise.find({})
+    db.Exercise.find({})
       .then(workout => {
         res.json(workout);
       })
